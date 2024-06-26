@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Orders } from "./pages/Orders.tsx";
+
+import { Orders } from "@pages/orders";
 
 import "@fontsource-variable/work-sans";
 import "./index.css";

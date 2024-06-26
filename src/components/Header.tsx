@@ -1,34 +1,35 @@
-import { IconShoppingCartFilled } from "@tabler/icons-react";
 import { useState } from "react";
+import { IconShoppingCartFilled } from "@tabler/icons-react";
+import { routes } from "@common/routes";
 
 export const Header = () => {
   const [links] = useState([
     {
       name: "Orders",
-      url: "/",
+      url: routes.orders,
     },
     {
       name: "Recipes",
-      url: "/recipes",
+      url: routes.recipes,
     },
     {
       name: "Stock",
-      url: "/stock",
+      url: routes.stock,
     },
     {
       name: "History",
-      url: "/history",
+      url: routes.history,
     },
     {
       name: "Purchases",
-      url: "/purchases",
+      url: routes.purchases,
     },
   ]);
 
   return (
     <header className="py-6 border-b-2 border border-transparent border-b-[#E5E8EB]">
       <div className="flex justify-between items-center mx-auto max-w-screen-xl">
-        <a className="flex flex-row items-center gap-4" href="/">
+        <a className="flex flex-row items-center gap-4" href={routes.orders}>
           <IconShoppingCartFilled size={24} />
           <p className="m-0 text-4xl font-bold italic">Orderly</p>
         </a>
