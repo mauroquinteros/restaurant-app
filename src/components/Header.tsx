@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { IconShoppingCartFilled } from "@tabler/icons-react";
-import { routes } from "@common/routes";
+import { routes } from "@common";
+import { IconShoppingCartFilled } from "@icons";
 
 export const Header = () => {
   const [links] = useState([
