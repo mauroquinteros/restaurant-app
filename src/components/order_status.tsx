@@ -1,24 +1,30 @@
-import { IconClock, IconCircleCheck, IconFlag } from "@icons";
+import { ReactNode } from "react";
 import { OrderStatusIcon } from "./order_status_icon";
 
-export const OrderStatus = () => {
+interface OrderStatusProps {
+  icon?: ReactNode;
+  statusName?: string;
+  statusCount?: number;
+  statusMessage?: string;
+}
+
+export const OrderStatus = ({
+  icon,
+  statusName,
+  statusCount,
+  statusMessage,
+}: OrderStatusProps) => {
   return (
     <>
-      <h3>Order Status</h3>
-      <ul>
-        <li>
-          <OrderStatusIcon icon={<IconClock />} />
-          <p>Requested</p>
-        </li>
-        <li>
-          <OrderStatusIcon icon={<IconCircleCheck />} />
-          <p>Preparing</p>
-        </li>
-        <li>
-          <OrderStatusIcon icon={<IconFlag />} />
-          <p>Prepared</p>
-        </li>
-      </ul>
+      <li className="flex gap-4 items-center">
+        <OrderStatusIcon icon={icon} />
+        <div>
+          <p>{statusName}</p>
+          <p className="text-sm text-[#A1824A]">
+            {statusCount} {statusMessage}
+          </p>
+        </div>
+      </li>
     </>
   );
 };
