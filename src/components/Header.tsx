@@ -27,7 +27,7 @@ export const Header = () => {
   ]);
 
   return (
-    <header className="py-6 border-b-2 border border-transparent border-b-[#E5E8EB]">
+    <header className="px-4 py-6 border-b-2 border border-transparent border-b-[#E5E8EB]">
       <div className="flex justify-between items-center mx-auto max-w-screen-xl">
         <a className="flex flex-row items-center gap-4" href={routes.orders}>
           <IconShoppingCartFilled size={24} />
