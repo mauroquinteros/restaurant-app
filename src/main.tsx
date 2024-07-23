@@ -1,13 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
-import { Orders } from "@pages/orders";
+import { BrowserRouter } from "react-router-dom";
+import { App } from "./App";
 
 import "@fontsource-variable/work-sans";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Orders />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
