@@ -1,5 +1,6 @@
 import { Layout, OrderStatusSidebar } from "@components";
 import { OrderForm } from "../components/order_form";
+import { OrderDashboard } from "../components/order_dashboard";
 
 export const Orders = () => {
   return (
@@ -13,6 +14,7 @@ export const Orders = () => {
           <div className="flex-1">
             <h3 className="text-2xl font-bold mb-6">Order List</h3>
             <OrderForm />
+            <OrderDashboard />
           </div>
         </div>
       </Layout>
