@@ -17,11 +17,13 @@ export const OrderGroup = ({ icon, status, orders }: OrderGroupProps) => {
           <OrderStatusIcon icon={icon} />
           <div className="flex-1 flex items-center justify-between">
             <div className="capitalize">
-              {order.recipes.map((recipe) => (
-                <p key={recipe.id}>{recipe.name}</p>
+              {order.recipes.map((recipe, index) => (
+                <p key={`${index}${recipe.id}`}>{recipe.name}</p>
               ))}
             </div>
-            <span className="text-sm text-[#A1824A]">{order.createdAt}</span>
+            <span className="min-w-36 text-sm text-[#A1824A] text-right">
+              {order.createdAt}
+            </span>
           </div>
         </div>
       ))}

@@ -2,20 +2,26 @@ import { IconMinus, IconPlus } from "@icons";
 import { useState } from "react";
 
 export const OrderForm = () => {
-  const [orderCount, setOrderCount] = useState(1);
+  const [quantity, setQuantity] = useState(1);
 
-  const decreaseOrderCount = () => {
-    if (orderCount > 1) setOrderCount(orderCount - 1);
+  const decreaseQuantity = () => {
+    if (quantity > 1) setQuantity(quantity - 1);
   };
 
-  const increaseOrderCount = () => {
-    setOrderCount(orderCount + 1);
+  const increaseQuantity = () => {
+    setQuantity(quantity + 1);
   };
 
-  const handleSubmit = (ev: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
-    console.log({ orderCount });
-    console.log("Order submitted");
+    const response = await fetch("http://localhost:3000/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ quantity }),
+    });
+    await response.json();
   };
 
   return (
@@ -24,21 +30,21 @@ export const OrderForm = () => {
         <button
           className="w-fit p-1 rounded-md bg-[#F5F0E5] hover:bg-[#d7c09a]"
           type="button"
-          onClick={decreaseOrderCount}
+          onClick={decreaseQuantity}
         >
           <IconMinus size={24} />
         </button>
         <input
           type="number"
-          value={orderCount}
+          value={quantity}
           min={1}
-          onChange={(ev) => setOrderCount(Number(ev.target.value))}
+          onChange={(ev) => setQuantity(Number(ev.target.value))}
           className="w-6 text-center"
         />
         <button
           className="w-fit p-1 rounded-md bg-[#F5F0E5] hover:bg-[#d7c09a]"
           type="button"
-          onClick={increaseOrderCount}
+          onClick={increaseQuantity}
         >
           <IconPlus size={24} />
         </button>
