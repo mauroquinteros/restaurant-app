@@ -1,6 +1,9 @@
-import { Layout, OrderStatusSidebar } from "@components";
-import { OrderForm } from "../components/order_form";
-import { OrderDashboard } from "../components/order_dashboard";
+import {
+  Layout,
+  OrderStatusSidebar,
+  OrderForm,
+  OrderDashboard,
+} from "@components";
 
 export const Orders = () => {
   return (
