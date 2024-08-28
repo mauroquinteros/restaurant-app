@@ -1,28 +1,50 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IconClock, IconCircleCheck, IconFlag } from "@icons";
 import { OrderStatus } from "./order_status";
+import { SocketContext } from "@contexts";
+import { GroupedOrdersByStatus } from "@common";
 
 export const OrderStatusSidebar = () => {
-  const [orderStatus] = useState([
+  const context = useContext(SocketContext);
+  const [orderStatus, setOrderStatus] = useState<
     {
-      icon: <IconClock />,
-      statusName: "Requested",
-      statusCount: 3,
-      statusMessage: "Orders in progress",
-    },
-    {
-      icon: <IconCircleCheck />,
-      statusName: "Preparing",
-      statusCount: 5,
-      statusMessage: "Ready to deliver",
-    },
-    {
-      icon: <IconFlag />,
-      statusName: "Prepared",
-      statusCount: 10,
-      statusMessage: "Completed orders",
-    },
-  ]);
+      icon?: JSX.Element;
+      statusName?: string;
+      statusCount?: number;
+      statusMessage?: string;
+    }[]
+  >([]);
+
+  useEffect(() => {
+    context?.socket?.on("get_orders", (orders: GroupedOrdersByStatus) => {
+      const status = [
+        {
+          icon: <IconClock />,
+          statusName: "Requested",
+          statusCount: orders?.requested?.length,
+          statusMessage: "Orders in progress",
+        },
+        {
+          icon: <IconCircleCheck />,
+          statusName: "Preparing",
+          statusCount: orders?.preparing?.length,
+          statusMessage: "Ready to deliver",
+        },
+        {
+          icon: <IconFlag />,
+          statusName: "Prepared",
+          statusCount: orders?.prepared?.length,
+          statusMessage: "Completed orders",
+        },
+      ];
+
+      setOrderStatus(status);
+    });
+
+    return () => {
+      context?.socket?.off("get_orders");
+    };
+  }, [context?.socket]);
 
   return (
     <>

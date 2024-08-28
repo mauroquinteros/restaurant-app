@@ -7,7 +7,7 @@ export interface IOrder {
 }
 
 export type GroupedOrdersByStatus = {
-  prepared?: IOrder[];
   requested?: IOrder[];
   preparing?: IOrder[];
+  prepared?: IOrder[];
 } | null;
