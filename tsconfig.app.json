@@ -11,7 +11,9 @@
       "@common": ["./src/common/index.ts"],
       "@icons": ["./src/icons/index.ts"],
       "@components": ["./src/components/index.ts"],
-      "@pages/*": ["./src/pages/*"]
+      "@pages/*": ["./src/pages/*"],
+      "@hooks": ["./src/hooks/index.ts"],
+      "@contexts": ["./src/contexts/index.ts"]
     },
 
     /* Bundler mode */

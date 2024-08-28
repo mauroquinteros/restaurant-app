@@ -11,6 +11,8 @@ export default defineConfig({
       "@icons": path.resolve(__dirname, "./src/icons/index.ts"),
       "@components": path.resolve(__dirname, "./src/components/index.ts"),
       "@pages": path.resolve(__dirname, "./src/pages/"),
+      "@hooks": path.resolve(__dirname, "./src/hooks/index.ts"),
+      "@contexts": path.resolve(__dirname, "./src/contexts/index.ts"),
     },
   },
 });
