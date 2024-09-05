@@ -12,7 +12,6 @@ export default defineConfig({
       "@components": path.resolve(__dirname, "./src/components/index.ts"),
       "@pages": path.resolve(__dirname, "./src/pages/"),
       "@hooks": path.resolve(__dirname, "./src/hooks/index.ts"),
-      "@contexts": path.resolve(__dirname, "./src/contexts/index.ts"),
     },
   },
 });

@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { IconClock, IconCircleCheck, IconFlag } from "@icons";
-import { OrderStatus } from "./order_status";
-import { SocketContext } from "@contexts";
 import { GroupedOrdersByStatus } from "@common";
+import { OrderStatus } from "./order_status";
+import { SocketContext } from "../contexts/";
 
 export const OrderStatusSidebar = () => {
   const context = useContext(SocketContext);

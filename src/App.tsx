@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router";
-import { Orders } from "./pages/orders";
 import { BrowserRouter } from "react-router-dom";
-import { SocketProvider } from "./contexts/socketContext";
+import { Orders } from "@pages/Orders";
+import { SocketProvider } from "./contexts/";
 
 export const App = () => {
   return (

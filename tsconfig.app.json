@@ -12,8 +12,7 @@
       "@icons": ["./src/icons/index.ts"],
       "@components": ["./src/components/index.ts"],
       "@pages/*": ["./src/pages/*"],
-      "@hooks": ["./src/hooks/index.ts"],
-      "@contexts": ["./src/contexts/index.ts"]
+      "@hooks": ["./src/hooks/index.ts"]
     },
 
     /* Bundler mode */
