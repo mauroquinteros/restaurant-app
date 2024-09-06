@@ -14,7 +14,7 @@ export const OrderForm = () => {
 
   const handleSubmit = async (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
-    const response = await fetch("http://api.mauroquinteros.site/orders", {
+    const response = await fetch("https://api.mauroquinteros.site/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
