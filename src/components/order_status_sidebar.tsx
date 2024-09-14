@@ -1,11 +1,13 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { IconClock, IconCircleCheck, IconFlag } from "@icons";
 import { GroupedOrdersByStatus } from "@common";
 import { OrderStatus } from "./order_status";
-import { SocketContext } from "../contexts/";
 
-export const OrderStatusSidebar = () => {
-  const context = useContext(SocketContext);
+export const OrderStatusSidebar = ({
+  orders,
+}: {
+  orders: GroupedOrdersByStatus;
+}) => {
   const [orderStatus, setOrderStatus] = useState<
     {
       icon?: JSX.Element;
@@ -16,35 +18,29 @@ export const OrderStatusSidebar = () => {
   >([]);
 
   useEffect(() => {
-    context?.socket?.on("get_orders", (orders: GroupedOrdersByStatus) => {
-      const status = [
-        {
-          icon: <IconClock />,
-          statusName: "Requested",
-          statusCount: orders?.requested?.length,
-          statusMessage: "Orders in progress",
-        },
-        {
-          icon: <IconCircleCheck />,
-          statusName: "Preparing",
-          statusCount: orders?.preparing?.length,
-          statusMessage: "Ready to deliver",
-        },
-        {
-          icon: <IconFlag />,
-          statusName: "Prepared",
-          statusCount: orders?.prepared?.length,
-          statusMessage: "Completed orders",
-        },
-      ];
+    const status = [
+      {
+        icon: <IconClock />,
+        statusName: "Requested",
+        statusCount: orders?.requested?.length,
+        statusMessage: "Orders in progress",
+      },
+      {
+        icon: <IconCircleCheck />,
+        statusName: "Preparing",
+        statusCount: orders?.preparing?.length,
+        statusMessage: "Ready to deliver",
+      },
+      {
+        icon: <IconFlag />,
+        statusName: "Prepared",
+        statusCount: orders?.prepared?.length,
+        statusMessage: "Completed orders",
+      },
+    ];
 
-      setOrderStatus(status);
-    });
-
-    return () => {
-      context?.socket?.off("get_orders");
-    };
-  }, [context?.socket]);
+    setOrderStatus(status);
+  }, [orders]);
 
   return (
     <>
