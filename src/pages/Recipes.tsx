@@ -9,42 +9,35 @@ export const Recipes = () => {
 
   return (
     <Layout>
-      <table className="min-w-full divide-y divide-gray-200 overflow-x-auto">
-        <thead className="bg-gray-50">
-          <tr>
-            <th
-              scope="col"
-              className="px-6 py-3 text-center text-sm font-medium uppercase tracking-wider"
-            >
-              Name
-            </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-center text-sm font-medium uppercase tracking-wider"
-            >
-              Ingredients
-            </th>
-          </tr>
-        </thead>
-        <tbody className="bg-white divide-y divide-gray-200">
-          {data?.map(
-            (recipe: { id: string; name: string; ingredients: any[] }) => (
-              <tr key={recipe.id}>
-                <td className="px-6 py-4 whitespace-nowrap text-center text-sm text-neutral-800 capitalize">
-                  {recipe.name}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-center text-sm text-neutral-800 capitalize">
-                  {recipe.ingredients.map((ingredient: any, index) => (
-                    <p key={index}>
-                      {ingredient.name} {ingredient.quantity}
-                    </p>
-                  ))}
-                </td>
+      <div className="relative overflow-hidden bg-white shadow-md sm:rounded-lg">
+        <div className="overflow-x-auto">
+          <table className="w-full table-fixed text-base text-left">
+            <thead className="text-base text-neutral-700 bg-[#f5f0e5]">
+              <tr>
+                <th className="w-[250px] p-4 font-semibold">Name</th>
+                <th className="p-4 font-semibold">Ingredients</th>
               </tr>
-            )
-          )}
-        </tbody>
-      </table>
+            </thead>
+            <tbody className="text-gray-500">
+              {data?.map(
+                (recipe: { id: string; name: string; ingredients: any[] }) => (
+                  <tr key={recipe.id} className="border-b hover:bg-gray-100">
+                    <td className="w-[250px] p-4 capitalize">{recipe.name}</td>
+                    <td className="p-4">
+                      {recipe.ingredients.map((ingredient: any, index) => (
+                        <span key={index}>
+                          {ingredient.quantity} {ingredient.name}
+                          {index < recipe.ingredients.length - 1 && ", "}
+                        </span>
+                      ))}
+                    </td>
+                  </tr>
+                )
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </Layout>
   );
 };
