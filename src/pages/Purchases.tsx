@@ -5,7 +5,7 @@ import { useMemo } from "react";
 
 export const Purchases = () => {
   const options = useMemo(() => ({}), []);
-  const queryParam = useMemo(() => ({ fullList: true }), []);
+  const queryParam = useMemo(() => ({}), []);
   const { data } = useFetch("market/purchases", queryParam, options);
 
   return (

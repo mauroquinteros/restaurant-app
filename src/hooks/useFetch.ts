@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from "react";
 
-const URL = "http://localhost:3000";
+const URL = "https://api.mauroquinteros.site";
 
 export const useFetch = (
   path: string,
