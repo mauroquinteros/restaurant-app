@@ -5,6 +5,7 @@ import { Recipes } from "@pages/Recipes";
 import { SocketProvider } from "./contexts/";
 import { Stock } from "@pages/Stock";
 import { History } from "@pages/History";
+import { Purchases } from "@pages/Purchases";
 
 export const App = () => {
   return (
@@ -15,7 +16,7 @@ export const App = () => {
           <Route path="/recipes" element={<Recipes />} />
           <Route path="/stock" element={<Stock />} />
           <Route path="/history" element={<History />} />
-          <Route path="/purchases" element={<Orders />} />
+          <Route path="/purchases" element={<Purchases />} />
         </Routes>
       </BrowserRouter>
     </SocketProvider>
