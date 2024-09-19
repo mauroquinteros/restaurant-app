@@ -3,6 +3,8 @@ import { BrowserRouter } from "react-router-dom";
 import { Orders } from "@pages/Orders";
 import { Recipes } from "@pages/Recipes";
 import { SocketProvider } from "./contexts/";
+import { Stock } from "@pages/Stock";
+import { History } from "@pages/History";
 
 export const App = () => {
   return (
@@ -11,8 +13,8 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Orders />} />
           <Route path="/recipes" element={<Recipes />} />
-          <Route path="/stock" element={<Orders />} />
-          <Route path="/history" element={<Orders />} />
+          <Route path="/stock" element={<Stock />} />
+          <Route path="/history" element={<History />} />
           <Route path="/purchases" element={<Orders />} />
         </Routes>
       </BrowserRouter>

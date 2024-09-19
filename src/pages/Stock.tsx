@@ -3,10 +3,10 @@ import { Layout } from "@components";
 import { useFetch } from "@hooks";
 import { useMemo } from "react";
 
-export const Recipes = () => {
+export const Stock = () => {
   const options = useMemo(() => ({}), []);
   const queryParam = useMemo(() => ({}), []);
-  const { data } = useFetch("recipes", queryParam, options);
+  const { data } = useFetch("ingredients", queryParam, options);
 
   return (
     <Layout>
@@ -15,23 +15,21 @@ export const Recipes = () => {
           <table className="w-full table-fixed text-base text-left">
             <thead className="text-base text-neutral-700 bg-[#f5f0e5]">
               <tr>
-                <th className="w-[250px] p-4 font-semibold">Name</th>
-                <th className="p-4 font-semibold">Ingredients</th>
+                <th className="w-[250px] p-4 font-semibold">Ingredient</th>
+                <th className="p-4 font-semibold">Quantity</th>
               </tr>
             </thead>
             <tbody className="text-gray-500">
               {data?.map(
-                (recipe: { id: string; name: string; ingredients: any[] }) => (
-                  <tr key={recipe.id} className="border-b hover:bg-gray-100">
-                    <td className="w-[250px] p-4 capitalize">{recipe.name}</td>
-                    <td className="p-4">
-                      {recipe.ingredients.map((ingredient: any, index) => (
-                        <span key={index}>
-                          {ingredient.quantity} {ingredient.name}
-                          {index < recipe.ingredients.length - 1 && ", "}
-                        </span>
-                      ))}
+                (ingredient: { id: string; name: string; stock: number }) => (
+                  <tr
+                    key={ingredient.id}
+                    className="border-b hover:bg-gray-100"
+                  >
+                    <td className="w-[250px] p-4 capitalize">
+                      {ingredient.name}
                     </td>
+                    <td className="p-4">{ingredient.stock}</td>
                   </tr>
                 )
               )}
