@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
-import { OrderStatusIcon } from "./order_status_icon";
-import { IOrder } from "@common";
+import { OrderStatusIcon } from "./orderStatusIcon";
+import { IOrder } from "../common";
 
 interface OrderGroupProps {
   icon: ReactNode;

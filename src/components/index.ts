@@ -1,7 +1,7 @@
-export * from "./layout";
-export * from "./order_status_icon";
-export * from "./order_status";
-export * from "./order_status_sidebar";
-export * from "./order_group";
-export * from "./order_form";
-export * from "./order_dashboard";
+export { Layout } from "./layout";
+export { OrderStatusIcon } from "./orderStatusIcon";
+export { OrderStatus } from "./orderStatus";
+export { OrderStatusSidebar } from "./orderStatusSidebar";
+export { OrderGroup } from "./orderGroup";
+export { OrderForm } from "./orderForm";
+export { OrderDashboard } from "./orderDashboard";

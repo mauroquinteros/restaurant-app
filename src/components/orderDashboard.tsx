@@ -1,6 +1,6 @@
-import { IconCircleCheck, IconClock, IconFlag } from "@icons";
-import { OrderGroup } from "./order_group";
-import { GroupedOrdersByStatus } from "@common";
+import { IconCircleCheck, IconClock, IconFlag } from "../icons";
+import { OrderGroup } from "./orderGroup";
+import { GroupedOrdersByStatus } from "../common";
 
 export const OrderDashboard = ({
   orders,

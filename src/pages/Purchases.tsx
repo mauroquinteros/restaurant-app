@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { Layout } from "@components";
-import { useFetch } from "@hooks";
 import { useMemo } from "react";
+import { useFetch } from "../hooks";
+import { Layout } from "../components";
 
 export const Purchases = () => {
   const options = useMemo(() => ({}), []);

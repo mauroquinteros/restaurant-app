@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { IconClock, IconCircleCheck, IconFlag } from "@icons";
-import { GroupedOrdersByStatus } from "@common";
-import { OrderStatus } from "./order_status";
+import { IconClock, IconCircleCheck, IconFlag } from "../icons";
+import { GroupedOrdersByStatus } from "../common";
+import { OrderStatus } from "./orderStatus";
 
 export const OrderStatusSidebar = ({
   orders,

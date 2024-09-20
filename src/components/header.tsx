@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { routes } from "@common";
-import { IconShoppingCartFilled } from "@icons";
+import { routes } from "../common";
+import { IconShoppingCartFilled } from "../icons";
 
 export const Header = () => {
   const [links] = useState([

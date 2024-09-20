@@ -1,5 +1,5 @@
-import { IconMinus, IconPlus } from "@icons";
 import { useState } from "react";
+import { IconMinus, IconPlus } from "../icons";
 
 export const OrderForm = () => {
   const [quantity, setQuantity] = useState(1);

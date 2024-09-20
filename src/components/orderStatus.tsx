@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { OrderStatusIcon } from "./order_status_icon";
+import { OrderStatusIcon } from "./orderStatusIcon";
 
 interface OrderStatusProps {
   icon?: ReactNode;

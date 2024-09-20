@@ -1,6 +1,6 @@
 import { createContext, ReactNode } from "react";
-import { useSocket } from "@hooks";
 import { Socket } from "socket.io-client";
+import { useSocket } from "../hooks";
 
 interface SocketProviderProps {
   children: ReactNode;

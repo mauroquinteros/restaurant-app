@@ -1,12 +1,12 @@
+import { useContext, useEffect, useState } from "react";
+import { GroupedOrdersByStatus } from "../common";
+import { SocketContext } from "../contexts";
 import {
   Layout,
   OrderStatusSidebar,
   OrderForm,
   OrderDashboard,
-} from "@components";
-import { SocketContext } from "../contexts";
-import { useContext, useEffect, useState } from "react";
-import { GroupedOrdersByStatus } from "@common";
+} from "../components";
 
 export const Orders = () => {
   const context = useContext(SocketContext);
