@@ -15,7 +15,7 @@ export const OrderForm = () => {
 
   const handleSubmit = async (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
-    const response = await fetch(config.url, {
+    const response = await fetch(`${config.url}/orders`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
