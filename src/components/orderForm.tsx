@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { IconMinus, IconPlus } from "../icons";
+import { config } from "../common/config";
 
 export const OrderForm = () => {
   const [quantity, setQuantity] = useState(1);
@@ -14,7 +15,7 @@ export const OrderForm = () => {
 
   const handleSubmit = async (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
-    const response = await fetch("https://api.mauroquinteros.site/orders", {
+    const response = await fetch(config.url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,13 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from "react";
-
-const URL = "https://api.mauroquinteros.site";
-
+import { config } from "../common/config";
 export const useFetch = (
   path: string,
   queryParam: Record<string, any>,
-  options = {},
-  url: string = URL
+  options = {}
 ) => {
   const [data, setData] = useState<[] | null>(null);
   const [loading, setLoading] = useState(true);
@@ -18,7 +15,9 @@ export const useFetch = (
       setLoading(true);
       try {
         const queryString = new URLSearchParams(queryParam).toString();
-        const fullUrl = `${url}/${path}${queryString ? `?${queryString}` : ""}`;
+        const fullUrl = `${config.url}/${path}${
+          queryString ? `?${queryString}` : ""
+        }`;
 
         const response = await fetch(fullUrl, options);
         if (!response.ok) {
@@ -34,7 +33,7 @@ export const useFetch = (
     };
 
     fetchData();
-  }, [path, url, options, queryParam]);
+  }, [path, options, queryParam]);
 
   return { data, loading, error };
 };
