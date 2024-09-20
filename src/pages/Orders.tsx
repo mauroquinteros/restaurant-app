@@ -5,7 +5,7 @@ import {
   Layout,
   OrderStatusSidebar,
   OrderForm,
-  OrderDashboard,
+  OrderGroupList,
 } from "../components";
 
 export const Orders = () => {
@@ -35,7 +35,7 @@ export const Orders = () => {
         <div className="flex-1">
           <h3 className="text-2xl font-bold mb-6">Order List</h3>
           <OrderForm />
-          <OrderDashboard orders={groupedOrdersByStatus} />
+          <OrderGroupList orders={groupedOrdersByStatus} />
         </div>
       </div>
     </Layout>

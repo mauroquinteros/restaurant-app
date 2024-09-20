@@ -2,7 +2,7 @@ import { IconCircleCheck, IconClock, IconFlag } from "../icons";
 import { OrderGroup } from "./orderGroup";
 import { GroupedOrdersByStatus } from "../common";
 
-export const OrderDashboard = ({
+export const OrderGroupList = ({
   orders,
 }: {
   orders: GroupedOrdersByStatus;
